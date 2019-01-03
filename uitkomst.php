@@ -3,25 +3,34 @@
 
 <?php
 
-    function product($getal1,$getal2) {
+    function oppervlakte($getal1,$getal2) {
         global $e;
         $e = $getal1*$getal2;
     }
+    
     function som($getal3,$getal4)
     {global $som;
         $som =  $getal3 + $getal4;
-
     }
-$x = $_POST["first"];
-$y = $_POST["second"];
-product($x,$y);
-som($x,$y);
-echo "de som van de getallen ".$x." en ".$y." is ".$som.".";
+    
+    function inhoud($lengte,$breedte,$diepte){
+        global $inhoud;
+            $inhoud = $lengte * $breedte * $diepte;
+    }
+
+$lengte = $_POST["lengte"];
+$breedte = $_POST["breedte"];
+$diepte = $_POST["diepte"];
+// oppervlakte($x,$y);
+// som($x,$y);
+inhoud($lengte,$breedte,$diepte);
+
 ?>
 <br/>
 <?php
-echo "Het produkt van de getallen ".$x." en ".$y." is ".$e.".";
-echo "<br>";
+
+echo "De inhoud van uw zwembad is ".$inhoud." m3.";
+
 // echo $_POST["first"]; 
 // echo $_POST["second"];
 ?>
