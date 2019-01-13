@@ -33,6 +33,9 @@ input{
  font-size: 2em;
  border-radius: 15px;
 }
+
+
+
 </style>
 <body>
 <?php
@@ -60,12 +63,16 @@ input{
         $omtrek = 2 * ($lengte + $breedte);
         return $omtrek;
     }
+    
+
+
 //van invulformulier   
 $lengte = $_POST["lengte"];
 $breedte = $_POST["breedte"];
 $diepte = $_POST["diepte"];
 $rand = $_POST["rand"];
 $marge = $_POST["marge"];
+
 
 //berekeningen
 $tempInhoud = inhoud($lengte,$breedte,$diepte);
@@ -77,6 +84,7 @@ $tempInhoudWater = inhoud( $lengte,$breedte,($diepte - $marge));
 $tempWandOppervlakte = oppervlakte($tempOmtrek,$diepte);
 $tempOppervlakteAfdekzeil = oppervlakte(($lengte+1),($breedte+1));
 $tempOppervlakteRand = oppervlakte((2*$rand+$lengte),(2*$rand+$breedte))-$tempOppervlakte;
+$tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
 ?>
 <br/>
 <h3>Hier is uw zwembad</h3>
@@ -84,43 +92,51 @@ $tempOppervlakteRand = oppervlakte((2*$rand+$lengte),(2*$rand+$breedte))-$tempOp
 //controle invoer
 echo "Uw invoer: lengte ".$lengte." m.; breedte ".$breedte." m.; diepte ".$diepte." m. <br>";
 echo "Uw invoer: rand ".$rand." m.; afstand tot waterpeil ".$marge." m. <br>";
-echo "<br>";?>
-<img src= "afgraving.png" alt ="afgraving" height = 360px width = 500px>
+echo "<br>";
+?>
+<img src= "afgraving.png" alt ="afgraving" height = 360px width = 500px> 
+
+
 <?php
 echo "<br>";
 echo "<br>";
 echo "Af te graven grond: ".$tempInhoud." m3.<br>";
 echo "<br>";?>
-<img src= "oppwanden.png" alt ="afgraving" height = 360px width = 500px>
+<img src= "oppwanden.png" alt ="afgraving" height = 360px width = 500px> 
+
 <?php
 echo "Totaaloppervlakte wanden: ".$tempWandOppervlakte." m2.<br>";
 echo "<br>";?>
 <img src= "vloeropp.png" alt ="afgraving" height = 360px width = 500px>
+
 <?php
 echo "Oppervlakte vloer: ".$tempOppervlakte." m2.<br>";
 echo "<br>";?>
-<img src= "watervolume.png" alt ="afgraving" height = 360px width = 500px>
+<img src= "watervolume.png" alt ="afgraving" height = 360px width = 500px> 
+
 <?php
 echo "Benodigd water: ".$tempInhoudWater." m3.<br>";
 echo "<br>";?>
-<img src= "rand2.png" alt ="afgraving" height = 360px width = 500px>
-<br>
+ <img src= "rand2.png" alt ="afgraving" height = 360px width = 500px>
+
 <?php
 echo "Rand om zwembad ".$tempOppervlakteRand." m2.<br>";
 echo "<br>";?>
 
 
 <img src= "afdekzeil.png" alt ="afgraving" height = 360px width = 500px>
-<?php
+
+</canvas><?php
 echo "Oppervlakte afdekzeil: ".$tempOppervlakteAfdekzeil." m2.<br>";
 echo "<br>";?>
-<img src= "randafwerkingafdekzeil.png" alt ="afgraving" height = 360px width = 500px>
+<img src= "randafwerkingafdekzeil.png" alt ="afgraving" height = 360px width = 500px> 
 <?php
-echo "Randafwerking afdekzeil: ".$tempOmtrek." m.<br>";
+echo "Randafwerking afdekzeil: ".$tempOmtrekAfdekzeil." m.<br>";
 
 
-// echo $_POST["first"]; 
-// echo $_POST["second"];
+
 ?>
+
+
 </body>
 </html>

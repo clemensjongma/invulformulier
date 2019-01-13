@@ -57,6 +57,9 @@ h3{
 
 
 </style>
+<!-- <?php $lengte="";$breedte="";$diepte="";$rand="";$marge="";?> -->
+
+
 <body>
 <h3>Ontwerp hier uw zwembad</h3>
 <img src= "alleszonderrand.png" alt ="zwembad" height = 360 px width = 500 px>
