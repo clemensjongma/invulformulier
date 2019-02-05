@@ -3,7 +3,8 @@
 <style>
 body {
     margin: 20px;
-  padding: 50px;
+  padding-left: 500px;
+  margin-top: 50px;
   font-family: sans-serif;
   font-size: 20px;
   letter-spacing: 0px;
@@ -63,6 +64,13 @@ input{
         $omtrek = 2 * ($lengte + $breedte);
         return $omtrek;
     }
+    function aantalTegels($lengte,$breedte){
+        $aantalTegels = 0;
+        $aantalTegels = ($lengte/0.3)*($breedte/0.3);
+        return $aantalTegels;
+
+
+    }
     
 
 
@@ -77,63 +85,85 @@ $marge = $_POST["marge"];
 //berekeningen
 $tempInhoud = inhoud($lengte,$breedte,$diepte);
 $tempOppervlakte = oppervlakte($lengte,$breedte);
+
 $tempOmtrek = omtrek($lengte,$breedte);
 //waternivo is lager dan diepte
 $tempInhoudWater = inhoud( $lengte,$breedte,($diepte - $marge));
 //totale wandoppervlakte = omtrek * diepte
 $tempWandOppervlakte = oppervlakte($tempOmtrek,$diepte);
+$tempAantaltegelsWanden = aantalTegels($tempOmtrek,$diepte);
 $tempOppervlakteAfdekzeil = oppervlakte(($lengte+1),($breedte+1));
+$tempAantaltegelsVloer = aantalTegels($lengte,$breedte);
+
 $tempOppervlakteRand = oppervlakte((2*$rand+$lengte),(2*$rand+$breedte))-$tempOppervlakte;
+$tempAantaltegelsRand = ($tempOppervlakteRand/0.09);
 $tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
 ?>
 <br/>
-<h3>Hier is uw zwembad</h3>
+<h3>Uw zwembad:</h3><br>
+<ul>
 <?php
-//controle invoer
-echo "Uw invoer: lengte ".$lengte." m.; breedte ".$breedte." m.; diepte ".$diepte." m. <br>";
-echo "Uw invoer: rand ".$rand." m.; afstand tot waterpeil ".$marge." m. <br>";
+echo "Het wordt ".$lengte." m. lang, ".$breedte." m. breed en ".$diepte." m. diep.<br>";
+echo "Het krijgt een rand van ".$rand." m. <br> Het wordt tot ".$marge." m. onder de rand gevuld. <br>";
 echo "<br>";
 ?>
+
+
 <img src= "afgraving.png" alt ="afgraving" height = 360px width = 500px> 
-
-
 <?php
 echo "<br>";
 echo "<br>";
 echo "Af te graven grond: ".$tempInhoud." m3.<br>";
 echo "<br>";?>
+
+
 <img src= "oppwanden.png" alt ="afgraving" height = 360px width = 500px> 
-
 <?php
+echo "<br>";
+echo "<br>";
 echo "Totaaloppervlakte wanden: ".$tempWandOppervlakte." m2.<br>";
+echo "Aantal wandtegels: ".$tempAantaltegelsWanden." st.<br>";
 echo "<br>";?>
+
+
 <img src= "vloeropp.png" alt ="afgraving" height = 360px width = 500px>
-
 <?php
+echo "<br>";
+echo "<br>";
 echo "Oppervlakte vloer: ".$tempOppervlakte." m2.<br>";
+echo "Aantal vloertegels: ".$tempAantaltegelsVloer." st.<br>";
 echo "<br>";?>
-<img src= "watervolume.png" alt ="afgraving" height = 360px width = 500px> 
 
+
+<img src= "watervolume.png" alt ="afgraving" height = 360px width = 500px> 
 <?php
+echo "<br>";
+echo "<br>";
 echo "Benodigd water: ".$tempInhoudWater." m3.<br>";
 echo "<br>";?>
- <img src= "rand2.png" alt ="afgraving" height = 360px width = 500px>
 
+
+ <img src= "rand2.png" alt ="afgraving" height = 360px width = 500px>
 <?php
+echo "<br>";
+echo "<br>";
 echo "Rand om zwembad ".$tempOppervlakteRand." m2.<br>";
+echo "Aantal randtegels: ".$tempAantaltegelsRand." st.<br>";
 echo "<br>";?>
 
 
 <img src= "afdekzeil.png" alt ="afgraving" height = 360px width = 500px>
-
 </canvas><?php
-echo "Oppervlakte afdekzeil: ".$tempOppervlakteAfdekzeil." m2.<br>";
+echo "<br>";
+echo "<br>";
+echo "Oppervlakte afdekzeil: ".$tempOppervlakteAfdekzeil." m2. <br>";
 echo "<br>";?>
+
 <img src= "randafwerkingafdekzeil.png" alt ="afgraving" height = 360px width = 500px> 
 <?php
+echo "<br>";
+echo "<br>";
 echo "Randafwerking afdekzeil: ".$tempOmtrekAfdekzeil." m.<br>";
-
-
 
 ?>
 

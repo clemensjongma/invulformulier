@@ -2,7 +2,8 @@
 <style>
 body {
   margin: 20px;
-  padding: 50px;
+  padding-left: 500px;
+  padding-top: 50px;
   font-family: sans-serif;
   font-size: 20px;
   letter-spacing: 0px;
@@ -61,7 +62,7 @@ h3{
 
 
 <body>
-<h3>Ontwerp hier uw zwembad</h3>
+<h3>Ontwerp uw zwembad</h3>
 <img src= "alleszonderrand.png" alt ="zwembad" height = 360 px width = 500 px>
 <form action="uitkomst.php" method="post">
 <br>
