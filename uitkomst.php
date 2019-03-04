@@ -67,7 +67,8 @@ input{
     function aantalTegels($lengte,$breedte){
         $aantalTegels = 0;
         $aantalTegels = ($lengte/0.3)*($breedte/0.3);
-        return $aantalTegels;
+        $afgerondAantalTegels = ceil($aantalTegels);
+        return $afgerondAantalTegels;
 
 
     }
