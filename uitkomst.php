@@ -97,7 +97,8 @@ $tempOppervlakteAfdekzeil = oppervlakte(($lengte+1),($breedte+1));
 $tempAantaltegelsVloer = aantalTegels($lengte,$breedte);
 
 $tempOppervlakteRand = oppervlakte((2*$rand+$lengte),(2*$rand+$breedte))-$tempOppervlakte;
-$tempAantaltegelsRand = ($tempOppervlakteRand/0.09);
+$tempAantaltegelsRand = ceil($tempOppervlakteRand/0.09);
+
 $tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
 ?>
 <br/>
