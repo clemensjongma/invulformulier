@@ -58,7 +58,7 @@ h3{
 
 
 </style>
-<!-- <?php $lengte="";$breedte="";$diepte="";$rand="";$marge="";?> -->
+<!-- <?php $lengte="";$breedte="";$diepte="";$rand="";$marge="";$bekleding=""?> -->
 
 
 <body>

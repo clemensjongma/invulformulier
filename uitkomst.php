@@ -81,6 +81,7 @@ $breedte = $_POST["breedte"];
 $diepte = $_POST["diepte"];
 $rand = $_POST["rand"];
 $marge = $_POST["marge"];
+$bekleding = $_POST["bekleding"];
 
 
 //berekeningen
@@ -101,12 +102,12 @@ $tempAantaltegelsRand = ceil($tempOppervlakteRand/0.09);
 
 $tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
 ?>
-<br/>
+
 <h3>Uw zwembad:</h3><br>
-<ul>
+
 <?php
-echo "Het wordt ".$lengte." m. lang, ".$breedte." m. breed en ".$diepte." m. diep.<br>";
-echo "Het krijgt een rand van ".$rand." m. <br> Het wordt tot ".$marge." m. onder de rand gevuld. <br>";
+echo "Uw zwembad wordt ".$lengte." m. lang, ".$breedte." m. breed en ".$diepte." m. diep.<br>";
+echo "Het krijgt een rand van ".$rand." m. <br> Het zwembad wordt tot ".$marge." m. onder de rand gevuld. <br>";
 echo "<br>";
 ?>
 
@@ -123,8 +124,13 @@ echo "<br>";?>
 <?php
 echo "<br>";
 echo "<br>";
+if ($bekleding == "Geschilderd") {
 echo "Totaaloppervlakte wanden: ".$tempWandOppervlakte." m2.<br>";
-echo "Aantal wandtegels: ".$tempAantaltegelsWanden." st.<br>";
+}
+else {
+echo "Benodigd aantal wandtegels: ".$tempAantaltegelsWanden." st.<br>";
+}
+
 echo "<br>";?>
 
 
@@ -132,8 +138,12 @@ echo "<br>";?>
 <?php
 echo "<br>";
 echo "<br>";
+if ($bekleding == "Geschilderd") {
 echo "Oppervlakte vloer: ".$tempOppervlakte." m2.<br>";
-echo "Aantal vloertegels: ".$tempAantaltegelsVloer." st.<br>";
+}
+else {
+   echo "Aantal vloertegels: ".$tempAantaltegelsVloer." st.<br>";
+}
 echo "<br>";?>
 
 
@@ -149,7 +159,7 @@ echo "<br>";?>
 <?php
 echo "<br>";
 echo "<br>";
-echo "Rand om zwembad ".$tempOppervlakteRand." m2.<br>";
+// echo "Rand om zwembad ".$tempOppervlakteRand." m2.<br>";
 echo "Aantal randtegels: ".$tempAantaltegelsRand." st.<br>";
 echo "<br>";?>
 
