@@ -1,105 +1,155 @@
+<!DOCTYPE html>
 <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: left;
   margin: 20px;
-  padding-left: 500px;
-  padding-top: 50px;
-  font-family: sans-serif;
-  font-size: 20px;
-  letter-spacing: 0px;
-  justify-content: center;
-  text-align: left;
-  background: #66ccff;
 }
 
-button {
-  text-transform: uppercase;
-  padding: 20px;
-  margin: 50px;
-  background: green;
-  color: blue;
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
   border-radius: 5px;
+  background-color: #f2f2ff;
+  padding: 20px;
+  margin: 20px;
+  
 }
 
-button:hover{
-  color: green;
-  border: 1px solid green;
-  background: white;
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
 }
 
-input{
-    background-color: lightblue;
-    size: 30px;
-    width: 100px;
-    height: 50px;
-    text-align: left;
-    font-size: 20px;
-    padding-left: 20px;
-    margin: 5px;
-
- /* font-size: 20px;
- padding: 20 px;
- border-radius: 15px; */
-}
-h3{
-    text-align: left;
-
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
 }
 
-#submit{
-    background-color: darkgrey;
-    width: 250px;
-}
-.radio{
-    width: 20px;
-    
-
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
 </style>
+
 <!-- <?php $lengte="";$breedte="";$diepte="";$rand="";$marge="";$bekleding=""?> -->
 
 
 <body>
-<h3>Ontwerp uw zwembad</h3>
-<img src= "alleszonderrand.png" alt ="zwembad" height = 360 px width = 500 px>
-<form action="uitkomst.php" method="post">
-<br>
-Lengte: 
-<input type="text" name="lengte" value="<?php echo $lengte;?>">m.  
-<br>
-Breedte: 
-<input type="text" name="breedte" value="<?php echo $breedte;?>">m.
-<br>
-Diepte: 
-<input type="text" name="diepte" value="<?php echo $diepte;?>">m.
-<br>
-<br>
-<img src= "rand2.png" alt ="rand" height = 360px width = 500px>
-<br>
-<br>
-Rand om zwembad: 
-<input type="text" name="rand" value="<?php echo $rand;?>">m.
-<br>
-<br>
-<br>
-<img src= "alles.png" alt ="rand" height = 360px width = 500px>
-<br>
-<br>
-Afstand tot waterniveau:  
-<input type="text" name="marge" value="<?php echo $marge;?>">m.
-<br>
-<br>
-Gewenste bekleding: 
-<br>
-<input class= radio type="radio" name="bekleding" value="Geschilderd"> Geschilderd
-<input class= radio type="radio" name="bekleding" value="Betegeld"> Betegeld<br>
+<div class="container">
+    <h3>De zwembadconfigurator</h3><br>
+    <p>Met deze tool kunt u berekenen hoeveel materiaal u nodig heeft voor het maken van een zwembad.</p>
+
+    <img src= "alleszonderrand.png" alt ="zwembad" height = 360 px width = 500 px>
+    
+        
+</div>
+
+<div class="container">      
+    <p>Beantwoord u a.u.b. de volgende vragen:</p>
 
 
-<input id=submit type="submit" name="submit" value="Vraag gegevens aan">  
-</form> 
+  <form action="uitkomst.php" method="post">
+    <div class="row">
+          <div class="col-25">
+            <label for="lng">Hoe lang wordt uw zwembad?</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="lng" name="lengte" placeholder="lengte in meters..">
+          </div>
+        </div>  
 
+
+    <div class="row">
+          <div class="col-25">
+            <label for="brd">Hoe breed wordt uw zwembad?</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="brd" name="breedte" placeholder="breedte in meters..">
+          </div>
+        </div>
+
+
+    <div class="row">
+          <div class="col-25">
+            <label for="dp">Hoe diep wordt uw zwembad?</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="dp" name="diepte" placeholder="diepte in meters..">
+          </div>
+        </div>
+        
+
+    <div class="row">
+          <div class="col-25">
+            <label for="rnd">Hoe groot wordt de rand om het zwembad?</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="rnd" name="rand" placeholder="rand in meters..">
+          </div>
+        </div>
+    
+    <div class="row">
+          <div class="col-25">
+            <label for="mrg">Wat wordt de afstand tot het waterniveau?</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="mrg" name="marge" placeholder="in meters..">
+          </div>
+        </div>
+    
+    <div class="row">
+          
+            <label for="bkl">Kies hier de gewenste bekleding van het zwembad:</label>
+            <br>
+          
+            <input type="radio" id="bkl" name="bekleding" value="Geschilderd"> Geschilderd
+            <input type="radio" id="bkl" name="bekleding" value="Betegeld"> Betegeld
+            
+        </div>
+
+  <input id=submit type="submit" name="submit" value="Vraag gegevens aan">  
+  </form> 
+</div>
 
 </body> 
 

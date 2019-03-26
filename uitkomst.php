@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <style>
@@ -12,29 +13,6 @@ body {
   text-align: left;
   background: #66ccff;
 }
-
-button {
-  text-transform: uppercase;
-  padding: 20px;
-  margin: 50px;
-  background: green;
-  color: white;
-  border-radius: 15px;
-}
-
-button:hover{
-  color: green;
-  border: 1px solid green;
-  background: white;
-}
-
-input{
- min-width: 75px;
- min-height: 75px;
- font-size: 2em;
- border-radius: 15px;
-}
-
 
 
 </style>
