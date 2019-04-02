@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  
 }
 
 input[type=text], select, textarea {
@@ -9,6 +10,7 @@ input[type=text], select, textarea {
   border-radius: 4px;
   resize: vertical;
   text-align: right;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 label {
@@ -29,6 +31,8 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a0ff;
+  border: 1px;
+  color: black;
 }
 
 .container {
@@ -38,6 +42,7 @@ input[type=submit]:hover {
   margin: 20px;
   width: 50%;
   margin: auto;
+  font-family: 'Roboto', sans-serif;
   
 }
 
@@ -75,3 +80,7 @@ img {
     width: 60%;
     height: 60%;
   }
+
+body{
+  background-color: rgb(186, 236, 243);
+}
