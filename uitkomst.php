@@ -52,7 +52,12 @@ body {
 
 
     }
-    
+    function prijs($prijspereenheid,$aantaleenheden){
+        $prijs = 0;
+        $prijs = $prijspereenheid*$aantaleenheden;
+        return $prijs;
+
+    }
 
 
 //van invulformulier   
@@ -62,6 +67,15 @@ $diepte = $_POST["diepte"];
 $rand = $_POST["rand"];
 $marge = $_POST["marge"];
 $bekleding = $_POST["bekleding"];
+
+//gegevens
+$prijsWandTegel = 1.4;
+$prijsVloerTegel = 1.36;
+$prijsRandTegel = 1.5;
+$prijsAfdekZeil = 8;
+$prijsWater = 1.2;
+$prijsRandAfwerking = 4;
+$prijsAfgravenGrond = 32;
 
 
 //berekeningen
@@ -76,11 +90,21 @@ $tempWandOppervlakte = oppervlakte($tempOmtrek,$diepte);
 $tempAantaltegelsWanden = aantalTegels($tempOmtrek,$diepte);
 $tempOppervlakteAfdekzeil = oppervlakte(($lengte+1),($breedte+1));
 $tempAantaltegelsVloer = aantalTegels($lengte,$breedte);
-
 $tempOppervlakteRand = oppervlakte((2*$rand+$lengte),(2*$rand+$breedte))-$tempOppervlakte;
 $tempAantaltegelsRand = ceil($tempOppervlakteRand/0.09);
 
 $tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
+
+//Prijsberekeningen
+$tempPrijsAfgravenGrond = prijs($prijsAfgravenGrond,$tempInhoud);
+$tempPrijsWater = prijs($prijsWater,$tempInhoudWater);
+$tempPrijsWandTegels = prijs($prijsWandTegel,$tempAantaltegelsWanden);
+$tempPrijsVloertegels = prijs($prijsVloerTegel,$tempAantaltegelsVloer);
+$tempPrijsRandtegels = prijs($prijsRandTegel,$tempAantaltegelsRand);
+$tempRandAfwerkingZeil = prijs($prijsRandAfwerking,$tempOmtrekAfdekzeil);
+$tempPrijsAfdekZeil = prijs($tempOppervlakteAfdekzeil,$prijsAfdekZeil);
+
+
 ?>
 <div class="container">
     <h3>Uw zwembad:</h3><br>
@@ -169,7 +193,7 @@ $tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
     echo "<br>";
     echo "Er is een afdekzeil nodig van ".$tempOppervlakteAfdekzeil." m2. <br>";
     echo "<br>";
-    ?>
+    echo "Dit kost € ".$tempPrijsAfdekZeil." "?>
 </div>
 <br>
 <div class="container">
@@ -183,5 +207,20 @@ $tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
     ?>
 </div>
 <br>
+<div class="container"
+<h3>Offerte</h3><br>
+<?php
+echo "de prijs van het afdekzeil is ".$tempPrijsAfdekZeil;
+// echo $tempPrijsAfgravenGrond;
+// echo $tempPrijsRandtegels;
+// echo $tempPrijsWandTegels;
+
+
+// echo ;
+// echo ;
+// echo ;
+?>
+</div>
+
 </body>
 </html>
