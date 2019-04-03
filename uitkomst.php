@@ -100,7 +100,7 @@ $tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
     <?php
     echo "<br>";
     echo "<br>";
-    echo "Er moet ongeveer ".$tempInhoud." m3. afgegraven worden.<br>";
+    echo "Er moet ongeveer ".$tempInhoud." m3 afgegraven worden.<br>";
     echo "<br>";
     ?>
 </div>

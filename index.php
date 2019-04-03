@@ -12,7 +12,7 @@
     <h3>De zwembadconfigurator</h3><br>
     <img src= "alleszonderrand.png" alt ="zwembad" height = 360 px width = 500 px>
     
-    <p>Met de zwembadconfigurator kunt u berekenen wat u moet doen en hoeveel materiaal u nodig heeft voor het maken van een zwembad.</p>
+    <p>Met de zwembadconfigurator kunt u berekenen hoeveel materiaal u nodig heeft voor het maken van een zwembad.</p>
 
     
     
