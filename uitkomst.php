@@ -99,11 +99,13 @@ $tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
 $tempPrijsAfgravenGrond = prijs($prijsAfgravenGrond,$tempInhoud);
 $tempPrijsWater = prijs($prijsWater,$tempInhoudWater);
 $tempPrijsWandTegels = prijs($prijsWandTegel,$tempAantaltegelsWanden);
-$tempPrijsVloertegels = prijs($prijsVloerTegel,$tempAantaltegelsVloer);
+$tempPrijsVloerTegels = prijs($prijsVloerTegel,$tempAantaltegelsVloer);
 $tempPrijsRandtegels = prijs($prijsRandTegel,$tempAantaltegelsRand);
-$tempRandAfwerkingZeil = prijs($prijsRandAfwerking,$tempOmtrekAfdekzeil);
+$tempPrijsRandafwerkingZeil = prijs($prijsRandAfwerking,$tempOmtrekAfdekzeil);
 $tempPrijsAfdekZeil = prijs($tempOppervlakteAfdekzeil,$prijsAfdekZeil);
-
+$tempTotaalPrijs = $tempPrijsAfgravenGrond + $tempPrijsWater +$tempPrijsWandTegels + $tempPrijsVloerTegels +$tempPrijsRandtegels
+ + $tempPrijsAfdekZeil + $tempPrijsRandafwerkingZeil
+  
 
 ?>
 <div class="container">
@@ -207,10 +209,29 @@ $tempPrijsAfdekZeil = prijs($tempOppervlakteAfdekzeil,$prijsAfdekZeil);
     ?>
 </div>
 <br>
-<div class="container"
+<div class="container">
 <h3>Offerte</h3><br>
 <?php
-echo "de prijs van het afdekzeil is ".$tempPrijsAfdekZeil;
+    echo "De prijs van het afgraven is €".$tempPrijsAfgravenGrond."<br>";
+
+if ($bekleding == "Geschilderd") {
+    echo "Er moet ongeveer ".$tempWandOppervlakte." m2 geschilderd worden.<br>";
+    }
+    else {
+    echo "De prijs van de wandtegels is €".$tempPrijsWandTegels."<br>";
+    }
+if ($bekleding == "Geschilderd") {
+    echo "Er moet ongeveer ".$tempWandOppervlakte." m2 geschilderd worden.<br>";
+    }
+    else {
+    echo "De prijs van de vloertegels is €".$tempPrijsVloerTegels."<br>";
+    }
+echo "De prijs van het water is €".$tempPrijsWater."<br>";
+echo "De prijs van de rand om het zwembad is €".$tempPrijsRandtegels."<br>";
+echo "De prijs van het afdekzeil is €".$tempPrijsAfdekZeil."<br>";
+echo "De prijs van randafwerking van het zeil is €".$tempPrijsRandafwerkingZeil."<br>";
+echo "<h3> De totaalprijs van uw zwembad is €".$tempTotaalPrijs."</h3><br>";
+
 // echo $tempPrijsAfgravenGrond;
 // echo $tempPrijsRandtegels;
 // echo $tempPrijsWandTegels;
