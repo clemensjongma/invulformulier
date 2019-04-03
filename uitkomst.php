@@ -226,6 +226,8 @@ if ($bekleding == "Geschilderd") {
     else {
     echo "De prijs van de vloertegels is €".$tempPrijsVloerTegels."<br>";
     }
+
+    
 echo "De prijs van het water is €".$tempPrijsWater."<br>";
 echo "De prijs van de rand om het zwembad is €".$tempPrijsRandtegels."<br>";
 echo "De prijs van het afdekzeil is €".$tempPrijsAfdekZeil."<br>";
