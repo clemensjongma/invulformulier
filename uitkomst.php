@@ -232,7 +232,7 @@ $tempTotaalPrijs = $tempPrijsAfgravenGrond + $tempPrijsWater +$tempPrijsWandTege
 <br>
 
 
-
+  
 
 <div class="container">
 <?php
