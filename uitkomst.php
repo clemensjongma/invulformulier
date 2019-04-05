@@ -67,15 +67,30 @@ $diepte = $_POST["diepte"];
 $rand = $_POST["rand"];
 $marge = $_POST["marge"];
 $bekleding = $_POST["bekleding"];
-
+$offerte = $_POST["offerte"];
 //gegevens
-$prijsWandTegel = 1.4;
-$prijsVloerTegel = 1.36;
+    if ($bekleding=="Betegeld") {
+        
+    $prijsWandTegel = 1.4;
+    $prijsVloerTegel = 1.36;
+    }
+    else {
+        $prijsWandTegel = 0;
+        $prijsVloerTegel = 0;
+    }
 $prijsRandTegel = 1.5;
 $prijsAfdekZeil = 8;
 $prijsWater = 1.2;
 $prijsRandAfwerking = 4;
 $prijsAfgravenGrond = 32;
+
+    if ($bekleding=="Geschilderd") {
+    $prijsVerf = 1.5;    
+    }
+    else {
+        $prijsVerf = 0;
+    }
+
 
 
 //berekeningen
@@ -88,22 +103,28 @@ $tempInhoudWater = inhoud( $lengte,$breedte,($diepte - $marge));
 //totale wandoppervlakte = omtrek * diepte
 $tempWandOppervlakte = oppervlakte($tempOmtrek,$diepte);
 $tempAantaltegelsWanden = aantalTegels($tempOmtrek,$diepte);
+//afdekzeil is  1m groter dan zwembad
 $tempOppervlakteAfdekzeil = oppervlakte(($lengte+1),($breedte+1));
+$tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
+
 $tempAantaltegelsVloer = aantalTegels($lengte,$breedte);
+//berekening rand om zwembad
 $tempOppervlakteRand = oppervlakte((2*$rand+$lengte),(2*$rand+$breedte))-$tempOppervlakte;
 $tempAantaltegelsRand = ceil($tempOppervlakteRand/0.09);
 
-$tempOmtrekAfdekzeil = omtrek(($lengte+1),($breedte+1));
+
 
 //Prijsberekeningen
 $tempPrijsAfgravenGrond = prijs($prijsAfgravenGrond,$tempInhoud);
 $tempPrijsWater = prijs($prijsWater,$tempInhoudWater);
+$tempPrijsWandVerf = prijs($tempWandOppervlakte,$prijsVerf);
 $tempPrijsWandTegels = prijs($prijsWandTegel,$tempAantaltegelsWanden);
+$tempPrijsVloerVerf = prijs($tempOppervlakte,$prijsVerf);
 $tempPrijsVloerTegels = prijs($prijsVloerTegel,$tempAantaltegelsVloer);
 $tempPrijsRandtegels = prijs($prijsRandTegel,$tempAantaltegelsRand);
 $tempPrijsRandafwerkingZeil = prijs($prijsRandAfwerking,$tempOmtrekAfdekzeil);
 $tempPrijsAfdekZeil = prijs($tempOppervlakteAfdekzeil,$prijsAfdekZeil);
-$tempTotaalPrijs = $tempPrijsAfgravenGrond + $tempPrijsWater +$tempPrijsWandTegels + $tempPrijsVloerTegels +$tempPrijsRandtegels
+$tempTotaalPrijs = $tempPrijsAfgravenGrond + $tempPrijsWater +$tempPrijsWandTegels + $tempPrijsVloerTegels +$tempPrijsWandVerf + $tempPrijsVloerVerf +$tempPrijsRandtegels
  + $tempPrijsAfdekZeil + $tempPrijsRandafwerkingZeil
   
 
@@ -209,19 +230,25 @@ $tempTotaalPrijs = $tempPrijsAfgravenGrond + $tempPrijsWater +$tempPrijsWandTege
     ?>
 </div>
 <br>
+
+
+
+
 <div class="container">
-<h3>Offerte</h3><br>
 <?php
+if ($offerte=="Ja") {
+echo "<h3>Offerte</h3><br>";
+
     echo "De prijs van het afgraven is €".$tempPrijsAfgravenGrond."<br>";
 
 if ($bekleding == "Geschilderd") {
-    echo "Er moet ongeveer ".$tempWandOppervlakte." m2 geschilderd worden.<br>";
+    echo "Er moet ongeveer ".$tempWandOppervlakte." m2 wand geschilderd worden.<br>";
     }
     else {
     echo "De prijs van de wandtegels is €".$tempPrijsWandTegels."<br>";
     }
 if ($bekleding == "Geschilderd") {
-    echo "Er moet ongeveer ".$tempWandOppervlakte." m2 geschilderd worden.<br>";
+    echo "Er moet ongeveer ".$tempWandOppervlakte." m2 vloer geschilderd worden.<br>";
     }
     else {
     echo "De prijs van de vloertegels is €".$tempPrijsVloerTegels."<br>";
@@ -229,19 +256,15 @@ if ($bekleding == "Geschilderd") {
 
     
 echo "De prijs van het water is €".$tempPrijsWater."<br>";
-echo "De prijs van de rand om het zwembad is €".$tempPrijsRandtegels."<br>";
+echo "De prijs van de wandtegels is €".$tempPrijsWandTegels."<br>";
+echo "De prijs van de vloertegels is €".$tempPrijsVloerTegels."<br>";
+echo "De prijs van muurverf is €".$tempPrijsWandVerf."<br>";
+echo "De prijs van vloerverf is €".$tempPrijsVloerVerf."<br>";
+
 echo "De prijs van het afdekzeil is €".$tempPrijsAfdekZeil."<br>";
 echo "De prijs van randafwerking van het zeil is €".$tempPrijsRandafwerkingZeil."<br>";
 echo "<h3> De totaalprijs van uw zwembad is €".$tempTotaalPrijs."</h3><br>";
-
-// echo $tempPrijsAfgravenGrond;
-// echo $tempPrijsRandtegels;
-// echo $tempPrijsWandTegels;
-
-
-// echo ;
-// echo ;
-// echo ;
+}
 ?>
 </div>
 

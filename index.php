@@ -85,6 +85,17 @@
             
         
     </div>
+    <br>
+    <div class="row">
+          
+            <label for="ofr">Wilt u een offerte?</label>
+            <br>
+          
+            <input type="radio" id="ofr" name="offerte" value="Ja"> Ja
+            <input type="radio" id="ofr" name="offerte" value="Nee"> Nee
+            
+        
+    </div>
 
 
   <input id=submit type="submit" name="submit" value="Vraag gegevens aan">
