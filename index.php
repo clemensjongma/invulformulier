@@ -19,10 +19,10 @@
       
           
   </div>
-</div>
+
 <br>
 
-  <div class="parallax">
+  
     <div class="container">      
         <p>Beantwoord a.u.b. de volgende vragen:</p>
 

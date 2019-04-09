@@ -129,6 +129,7 @@ $tempTotaalPrijs = $tempPrijsAfgravenGrond + $tempPrijsWater +$tempPrijsWandTege
   
 
 ?>
+<div class="parallax">
 <div class="container">
     <h3>Uw zwembad:</h3><br>
     <img src= "alles.png" alt ="alles" height = 360px width = 500px>
@@ -267,6 +268,6 @@ echo "<h3> De totaalprijs van uw zwembad is €".$tempTotaalPrijs."</h3><br>";
 }
 ?>
 </div>
-
+</div>
 </body>
 </html>
