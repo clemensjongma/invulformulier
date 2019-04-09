@@ -37,7 +37,7 @@ input[type=submit]:hover {
 
 .container {
   border-radius: 5px;
-  background-color: #6cd0ee;
+  background: rgba(244, 250, 244, 0.5);
   padding: 20px;
   margin: 20px;
   width: 50%;
@@ -83,6 +83,26 @@ img {
 
 body{
   background-color: rgb(186, 236, 243);
-  background-image: url("water.jpg");
+  /* background-image: url("water.jpg"); */
   background-repeat: no-repeat;
+ 
+}
+
+
+body, html {
+  height: 100%;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url('water.jpg');
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
