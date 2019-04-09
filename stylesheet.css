@@ -83,4 +83,6 @@ img {
 
 body{
   background-color: rgb(186, 236, 243);
+  background-image: url("water.jpg");
+  background-repeat: no-repeat;
 }
